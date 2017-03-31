@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Light Blue Default-->
+    <color name="default_primary">#03A9F4</color>
+    <color name="default_primary_dark">#0288D1</color>
+    <color name="default_primary_light">#B3E5FC</color>
+    <color name="default_accent">#7C4DFF</color>
+
+    <!--For Brown Light Blue-->
+    <color name="brown_primary">#795548</color>
+    <color name="brown_primary_dark">#5D4037</color>
+    <color name="brown_primary_light">#D7CCC8</color>
+    <color name="brown_accent">#03A9F4</color>
+
+    <!--Indigo-->
+    <color name="indigo_primary">#3F51B5</color>
+    <color name="indigo_primary_dark">#303F9F</color>
+    <color name="indigo_primary_light">#C5CAE9</color>
+    <color name="indigo_accent">#607D8B</color>
+
+    <!--Red-->
+    <color name="red_primary">#F44336</color>
+    <color name="red_primary_dark">#D32F2F</color>
+    <color name="red_primary_light">#FFCDD2</color>
+    <color name="red_accent">#4CAF50</color>
+
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="titlecolor">#ffffff</color>
+
+</resources>

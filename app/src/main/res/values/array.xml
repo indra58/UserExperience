@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listentries">
+        <item>Default</item>
+        <item>Red</item>
+        <item>Brown</item>
+        <item>Indigo</item>
+    </string-array>
+    <string-array name="listvalues">
+        <item>Default</item>
+        <item>Red</item>
+        <item>Brown</item>
+        <item>Indigo</item>
+    </string-array>
+</resources>

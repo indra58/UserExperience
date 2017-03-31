@@ -1,0 +1,77 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/default_primary</item>
+        <item name="colorPrimaryDark">@color/default_primary_dark</item>
+        <item name="colorAccent">@color/default_accent</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textColorHint">@color/red_primary_dark</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+
+    </style>
+
+    <!--Red Theme-->
+    <style name="Red" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/red_primary</item>
+        <item name="colorPrimaryDark">@color/red_primary_dark</item>
+        <item name="colorAccent">@color/red_accent</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textColorHint">@color/brown_primary_dark</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+    </style>
+
+    <!--Brown Theme-->
+    <style name="Brown" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/brown_primary</item>
+        <item name="colorPrimaryDark">@color/brown_primary_dark</item>
+        <item name="colorAccent">@color/brown_accent</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textColorHint">@color/indigo_primary_dark</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+    </style>
+
+    <!--Indigo Theme-->
+    <style name="Indigo" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/indigo_primary</item>
+        <item name="colorPrimaryDark">@color/indigo_primary_dark</item>
+        <item name="colorAccent">@color/indigo_accent</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textColorHint">@color/default_primary_dark</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+    </style>
+
+
+    <!--Material Theme Design-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="OverflowMenu" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <!-- item name="android:popupBackground">@color/colorPrimary</item> -->
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownVerticalOffset">-4.0dip</item>
+    </style>
+
+    <style name="SpinnerText" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textSize">25sp</item>
+    </style>
+
+</resources>
