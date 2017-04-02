@@ -1,9 +1,12 @@
 package com.greencomputingnepal.userexperience;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 1001;
     public static final String GLOBAL_DATA = "global_data";
 
+    private long backPressedTime = 0;  // For BackPress Time
+
     List<DataItem> dataItems = SampleDataProvider.dataItemList;
 
     DataItemAdapter dataItemAdapter;
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 
         String themeName = settings.getString(getString(R.string.preference_list_theme_colors), "");
-        if(themeName.equalsIgnoreCase("")){
+        if (themeName.equalsIgnoreCase("")) {
             themeName = "Default";
         }
         ThemeUtils.changeToTheme(MainActivity.this, themeName); // Change Theme as per user  choice
@@ -61,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Home");
+
+        // Adding menu icon to Toolbar
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setHomeAsUpIndicator(R.drawable.ic_info);
+            supportActionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         Collections.sort(dataItems, new Comparator<DataItem>() {
             @Override
@@ -73,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
         boolean show_hide = settings.getBoolean(getString(R.string.preference_display_show_hide_username), false);
         String username = settings.getString(getString(R.string.preference_display_name), "Guest");
 
-        if(show_hide){
+        if (show_hide) {
             txtUsername.setText(username);
         }
 
-        if(grid){
+        if (grid) {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         }
 
@@ -94,7 +106,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                infoDeveloper();
+                break;
+
             case R.id.menu_login:
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivityForResult(intent, REQUEST_CODE);
@@ -104,6 +120,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent settingsIntent = new Intent(this, PreferenceActivity.class);
                 startActivity(settingsIntent);
                 return true;
+
+            case R.id.menu_exit:
+                System.exit(0);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -112,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == RESULT_OK && requestCode == REQUEST_CODE){
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             String email = data.getStringExtra(LoginActivity.EMAIL_KEY);
             Toast.makeText(getApplicationContext(), "Signed in as " + email, Toast.LENGTH_SHORT).show();
 
@@ -120,5 +140,34 @@ public class MainActivity extends AppCompatActivity {
             editor.putString(LoginActivity.EMAIL_KEY, email);
             editor.apply();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        long t = System.currentTimeMillis();
+        if (t - backPressedTime > 2000) {    // 2 secs
+            backPressedTime = t;
+            Toast.makeText(this, "Press again to Exit", Toast.LENGTH_SHORT).show();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    private void infoDeveloper() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+
+        builder.setCancelable(false);
+        builder.setTitle(getString(R.string.title));
+        builder.setIcon(R.drawable.ic_info);
+        builder.setMessage(getString(R.string.developer_information));
+        builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //if user pressed "Ok", then he is allowed to exit from application
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

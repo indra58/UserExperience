@@ -20,4 +20,9 @@
     <string name="preference_list_theme_colors">preference_list_theme_colors</string>
     <string name="display_theme_choose">Theme</string>
     <string name="click">Click</string>
+    <string name="overflow">Overflow</string>
+    <string name="power_off">Power Off</string>
+
+    <string name="title">Developer Info</string>
+    <string name="developer_information">Material Theme by En Dra. Contact No. 9848606420 Email: indra.rana@gcn.com.np</string>
 </resources>
