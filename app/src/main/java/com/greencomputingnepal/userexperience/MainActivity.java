@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         String themeName = settings.getString(getString(R.string.preference_list_theme_colors), "");
         if (themeName.equalsIgnoreCase("")) {
-            themeName = "Default";
+            themeName = "0";
         }
         ThemeUtils.changeToTheme(MainActivity.this, themeName); // Change Theme as per user  choice
 
@@ -81,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        boolean grid = settings.getBoolean(getString(R.string.preference_display_grid), false);
-        boolean show_hide = settings.getBoolean(getString(R.string.preference_display_show_hide_username), false);
-        String username = settings.getString(getString(R.string.preference_display_name), "Guest");
+        boolean grid = settings.getBoolean(getString(R.string.preference_display_grid), true);
+        boolean show_hide = settings.getBoolean(getString(R.string.preference_display_show_hide_username), true);
+        String username = settings.getString(getString(R.string.preference_display_name), getString(R.string.default_name));
 
         if (show_hide) {
             txtUsername.setText(username);

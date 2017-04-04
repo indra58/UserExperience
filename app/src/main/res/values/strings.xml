@@ -8,21 +8,46 @@
     <string name="provide_password">Provide Password</string>
     <string name="settings">Settings</string>
 
+    <!-- Preference Category Name -->
+    <string name="view">View</string>
+    <string name="actions">Actions</string>
+
+    <string name="default_name">En Dra</string>
+
     <string name="preference_display_grid">preference_display_grid</string>
     <string name="disply_in_grid">Display in Grid</string>
+    <string name="summary_display_in_grid">Display Menu Data In A Multi-Column Gird</string>
+
 
     <string name="preference_display_name">preference_display_name</string>
     <string name="display_name">Admin Name</string>
+    <string name="summary_display_name">Change Admin to be Displayed</string>
 
     <string name="preference_display_show_hide_username">preference_show_hide_username</string>
     <string name="display_show_hide_username">Show/Hide Admin Name</string>
 
     <string name="preference_list_theme_colors">preference_list_theme_colors</string>
     <string name="display_theme_choose">Theme</string>
+    <string name="summary_theme_choose">Choose Your Custom Theme</string>
+
     <string name="click">Click</string>
     <string name="overflow">Overflow</string>
     <string name="power_off">Power Off</string>
 
     <string name="title">Developer Info</string>
     <string name="developer_information">Material Theme by En Dra. Contact No. 9848606420 Email: indra.rana@gcn.com.np</string>
+
+
+    <string-array name="listentries">
+        <item>Default</item>
+        <item>Red</item>
+        <item>Brown</item>
+        <item>Indigo</item>
+    </string-array>
+    <string-array name="listvalues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

@@ -13,16 +13,16 @@ public class ThemeUtils {
     public static void changeToTheme(Activity activity, String themeName) {
         switch (themeName) {
             default:
-            case "Default":
+            case "0":
                 activity.setTheme(R.style.AppTheme);
                 break;
-            case "Red":
+            case "1":
                 activity.setTheme(R.style.Red);
                 break;
-            case "Brown":
+            case "2":
                 activity.setTheme(R.style.Brown);
                 break;
-            case "Indigo":
+            case "3":
                 activity.setTheme(R.style.Indigo);
                 break;
         }

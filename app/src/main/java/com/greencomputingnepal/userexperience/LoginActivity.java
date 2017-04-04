@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         String themeName = settings.getString(getString(R.string.preference_list_theme_colors), "");
 
         if(themeName.equalsIgnoreCase("")){
-            themeName = "Default";
+            themeName = "0";
         }
         ThemeUtils.changeToTheme(LoginActivity.this, themeName);
 
