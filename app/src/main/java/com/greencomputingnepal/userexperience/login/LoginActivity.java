@@ -1,4 +1,4 @@
-package com.greencomputingnepal.userexperience;
+package com.greencomputingnepal.userexperience.login;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.greencomputingnepal.userexperience.MainActivity;
+import com.greencomputingnepal.userexperience.R;
 import com.greencomputingnepal.userexperience.utilities.ThemeUtils;
 
 import butterknife.BindView;
