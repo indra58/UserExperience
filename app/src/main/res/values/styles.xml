@@ -8,10 +8,8 @@
         <item name="colorAccent">@color/default_accent</item>
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:textColorHint">@color/red_primary_dark</item>
-
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
         <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
 
     </style>
@@ -65,7 +63,6 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="OverflowMenu" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
-        <!-- item name="android:popupBackground">@color/colorPrimary</item> -->
         <item name="overlapAnchor">false</item>
         <item name="android:dropDownVerticalOffset">-4.0dip</item>
     </style>
