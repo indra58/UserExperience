@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
+import com.activeandroid.ActiveAndroid;
 import com.greencomputingnepal.userexperience.MainActivity;
 import com.greencomputingnepal.userexperience.R;
 import com.greencomputingnepal.userexperience.utilities.ThemeUtils;
@@ -57,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         String email = preferences.getString(LoginActivity.EMAIL_KEY, "");
 
         if(!TextUtils.isEmpty(email)){
-            txtEmail.setText(email);
-            txtPassword.requestFocus();
+            txtEmail.setText("");
+            txtEmail.requestFocus();
         }
     }
 
@@ -97,9 +99,80 @@ public class LoginActivity extends AppCompatActivity {
             focusView.requestFocus();
         }
         else {
-            getIntent().putExtra(EMAIL_KEY, txtEmail.getText().toString());
+            ActiveAndroid.beginTransaction();
+            try{
+                Student student = new Student(txtEmail.getText().toString(), txtPassword.getText().toString());
+
+                if(Student.getDataUsingEmail(txtEmail.getText().toString()) == null ){
+                    student.save();
+                    Toast.makeText(getApplicationContext(), "Data Saved Successfully..", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), txtEmail.getText().toString() + "  Exists Already...", Toast.LENGTH_SHORT).show();
+                }
+                ActiveAndroid.setTransactionSuccessful();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            finally {
+                ActiveAndroid.endTransaction();
+            }
+           /* getIntent().putExtra(EMAIL_KEY, txtEmail.getText().toString());
             setResult(RESULT_OK, getIntent());
-            finish();
+            finish();*/
+        }
+    }
+
+    // TODO get data according to the email of student
+    @OnClick(R.id.btnGetData)
+    public void getData(){
+        Student student = Student.getDataUsingEmail(txtEmail.getText().toString());
+        if(student != null){
+            Toast.makeText(getApplicationContext(), "Email   :   " + student.getEmail() + "     Password   :   " + student.getPassword(), Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), txtEmail.getText().toString() + "  Not Found...", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // TODO delete data according to email of student
+    @OnClick(R.id.btnDeleteData)
+    public void deleteData(){
+        if(Student.getDataUsingEmail(txtEmail.getText().toString()) != null){
+            Student student = Student.deleteDataUsingEmail(txtEmail.getText().toString());
+            if(student == null){
+                Toast.makeText(getApplicationContext(), txtEmail.getText().toString() + " Deleted Successfully", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(), txtEmail.getText().toString() + "  Not Found...", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //TODO: delete all datas from table Student
+    @OnClick(R.id.btnDeleteAll)
+    public void deleteAll(){
+        if(Student.getAllData().size() != 0){
+            Student student = Student.deleteAll();
+            if(student == null) {
+                Toast.makeText(getApplicationContext(), "All Data Deleted Successfully..", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "No Data Found...", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // TODO: update passweord according to email
+    @OnClick(R.id.btnUpdatePassword)
+    public void updatePassword(){
+        if(Student.getDataUsingEmail(txtEmail.getText().toString()) != null){
+            Student.updatePassword(txtEmail.getText().toString(), txtPassword.getText().toString());
+            Toast.makeText(getApplicationContext(), "Updated Successfully..", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), txtEmail.getText().toString() + "  Not Found...", Toast.LENGTH_SHORT).show();
         }
     }
 

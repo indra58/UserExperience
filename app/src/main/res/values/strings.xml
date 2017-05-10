@@ -36,6 +36,10 @@
 
     <string name="title">Developer Info</string>
     <string name="developer_information">Material Theme by En Dra. Contact No. 9848606420 Email: indra.rana@gcn.com.np</string>
+    <string name="get_data">Get Data</string>
+    <string name="update_password">Update Password</string>
+    <string name="delete_data">Delete Data</string>
+    <string name="delete_all">Delete All</string>
 
 
     <string-array name="listentries">

@@ -20,7 +20,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
@@ -43,14 +43,16 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/provide_email_address"
                     android:maxLines="1"
-                    android:scrollbarAlwaysDrawVerticalTrack="true" />
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/passwordWrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/emailWrapper">
+                android:layout_below="@+id/emailWrapper"
+                app:passwordToggleEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/txtPassword"
@@ -67,8 +69,41 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/passwordWrapper"
                 android:text="@string/login" />
+
+            <Button
+                android:id="@+id/btnGetData"
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnLogin"
+                android:text="@string/get_data" />
+
+            <Button
+                android:id="@+id/btnDeleteData"
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnGetData"
+                android:text="@string/delete_data" />
+
+            <Button
+                android:id="@+id/btnDeleteAll"
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnDeleteData"
+                android:text="@string/delete_all" />
+
+            <Button
+                android:id="@+id/btnUpdatePassword"
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnDeleteAll"
+                android:text="@string/update_password" />
+
         </RelativeLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 
 </android.support.design.widget.CoordinatorLayout>
