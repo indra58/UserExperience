@@ -64,11 +64,12 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.btnLogin)
+    @OnClick(R.id.btnSaveData)
     public void clickLogin(View view){
         attemptLogin();
     }
 
+    // Saving Data in Database
     private void attemptLogin(){
         txtEmail.setError(null);
         txtPassword.setError(null);

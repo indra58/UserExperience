@@ -40,6 +40,11 @@
     <string name="update_password">Update Password</string>
     <string name="delete_data">Delete Data</string>
     <string name="delete_all">Delete All</string>
+    <string name="update_contact">Update Contact</string>
+    <string name="contact_no">Contact No</string>
+    <string name="provide_name">Provide Name</string>
+    <string name="save_data">Save Data</string>
+    <string name="contact">Contact</string>
 
 
     <string-array name="listentries">

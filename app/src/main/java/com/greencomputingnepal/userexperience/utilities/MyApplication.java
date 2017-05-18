@@ -14,7 +14,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Configuration configuration = new Configuration.Builder(this).setDatabaseName("Student.db").setDatabaseVersion(1).create();
+        Configuration configuration = new Configuration.Builder(this).setDatabaseName("Student.db").setDatabaseVersion(2).create();
         ActiveAndroid.initialize(configuration);
     }
 }

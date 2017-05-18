@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.greencomputingnepal.userexperience.contact.ContactActivity;
 import com.greencomputingnepal.userexperience.login.LoginActivity;
 import com.greencomputingnepal.userexperience.model.DataItem;
 import com.greencomputingnepal.userexperience.sample.SampleDataProvider;
@@ -113,8 +114,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.menu_login:
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivityForResult(intent, REQUEST_CODE);
+                Intent intentLogin = new Intent(this, LoginActivity.class);
+                startActivityForResult(intentLogin, REQUEST_CODE);
+                return true;
+
+            case R.id.menu_contact:
+                Intent intentContact = new Intent(this, ContactActivity.class);
+                startActivity(intentContact);
                 return true;
 
             case R.id.menu_settings:
